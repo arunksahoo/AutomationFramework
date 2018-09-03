@@ -10,8 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.framaework.commonutilites.BasePage;
 import com.framaework.commonutilites.GenericsMethods;
-import com.framework.commonfunction.BasePage;
 
 public class Homepage extends BasePage {
 	static WebElement element;
