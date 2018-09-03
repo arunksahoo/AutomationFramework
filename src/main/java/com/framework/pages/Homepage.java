@@ -23,7 +23,7 @@ public class Homepage extends BasePage {
 		genericMethods = new GenericsMethods();
 	}
 
-	// Config data file data
+	// Reading elements for home page
 	public static String ReadingFilePagePath(String Value) {
 		File file = new File("src/main/java/com/framework/uipageselements/HomePageElements.properties");
 		FileInputStream fileInput = null;

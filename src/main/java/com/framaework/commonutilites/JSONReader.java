@@ -13,6 +13,7 @@ import com.google.gson.JsonParser;
 
 public class JSONReader {
 
+	// Reading json file
 	public static String readFile(String filename) {
 		String result = "";
 		try {
@@ -30,6 +31,7 @@ public class JSONReader {
 		return result;
 	}
 
+	// Reading JSON Object as String  
 	public static JSONObject JSONFileAsObjects(String filename) {
 		JSONObject jobj = null;
 		try {

@@ -17,6 +17,7 @@ public class SoftAssertions {
 	public static Throwable exp;
 	private static String FOLDER_NAME = System.getProperty("user.dir") + "/Screenshots";
 
+	// Verify the Actual and Expected Results.
 	public static void verifyEquals(Object actual, Object expected, String successMessage, String failureMessage) {
 		try {
 			System.setProperty("org.uncommons.reportng.escape-output", "false");
@@ -60,6 +61,7 @@ public class SoftAssertions {
 	public static void reporterLogLine() {
 		Reporter.log("---------------------------------------------------------------");
 	}
+	// Take Screen Shot of Failure Elements
 	public static String takeScreenShotOnFailure() {
 		File snapshot = ((TakesScreenshot) ProjectSetup.getDriver()).getScreenshotAs(OutputType.FILE);
 		String dateNow = getCurrentDate();

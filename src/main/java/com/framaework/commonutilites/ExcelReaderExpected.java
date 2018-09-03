@@ -18,6 +18,7 @@ public class ExcelReaderExpected {
 	static HashMap<String, String> hm_expectedMessage;
 	static Sheet sheet;
 	
+	// Connecting Excel sheet 
 	public static void connectExcel() throws BiffException{
 		try {
 			workbook = Workbook.getWorkbook(new File("data_source/Validation.xls"));
@@ -27,13 +28,14 @@ public class ExcelReaderExpected {
 			Reporter.log("Fail: Cannot connect to expected message excel file");
 		}
 	}
-	
+	// Get Sheet Name
 	public static Sheet getSheet(String sheetName) throws IOException{
 		sheet = workbook.getSheet(sheetName);
 		return sheet;	
 		
 	}
 	
+	// Reading value as Key value pairs
 	public static void putHM_ExpectedDataObject(String sheetName) throws BiffException{
 		int rows = 0;
 		String key = null;
@@ -49,6 +51,7 @@ public class ExcelReaderExpected {
 		}
 	}
 	
+	// Reading Expected result
 	public static String get_ExpectedMessage(String sheetName, String key) throws BiffException{
 		putHM_ExpectedDataObject(sheetName);
 		return hm_expectedMessage.get(key).toString();

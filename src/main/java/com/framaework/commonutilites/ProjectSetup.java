@@ -67,17 +67,6 @@ public class ProjectSetup {
 			System.out.println("Not able to Open Base Url : " + e.getMessage());
 		}
 	}
-	// TO OPEN ANY URL RELATED TO APPLICATION
-
-	public void openUrl1(String Url) {
-		try {
-
-			driver.get(Url);
-			driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
-		} catch (Exception e) {
-			System.out.println("Not able to Open Base Url : " + e.getMessage());
-		}
-	}
 
 	// Method: Return driver object
 	// Driver object return
@@ -85,29 +74,11 @@ public class ProjectSetup {
 		return driver;
 	}
 
+	// Clear Browser History
 	public void ClearBrowserCache() {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 
 	}
 
-	public void waitForLoad(WebDriver driver) {
-		ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
-			public Boolean apply(WebDriver driver) {
-				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-			}
-		};
-		WebDriverWait wait = new WebDriverWait(driver, 1000000);
-		wait.until(pageLoadCondition);
-	}
-
-	public void waitForPageLoaded() {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, 1000000);
-			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#login-dialog")));
-		} catch (Throwable error) {
-			error.printStackTrace();
-			System.out.println("LOP");
-		}
-	}
 }

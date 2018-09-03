@@ -81,6 +81,8 @@ public class GenericsMethods {
 		return Data;
 	}
 
+	// File upload using Robot class
+	
 	public void fileUpload(String path) {
 
 		try {

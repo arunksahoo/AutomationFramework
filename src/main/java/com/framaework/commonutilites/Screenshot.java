@@ -9,7 +9,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class Screenshot {
-
+   // Take Screen Shot of page,Store in folder with date and time..
 	public   void takeScreenshot( WebDriver driver,String methodname,String dateFormatted ) throws IOException
 	{
 		File snapshot=  ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
