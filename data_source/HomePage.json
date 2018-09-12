@@ -1,3 +1,6 @@
 {
-  "url":"https://www.snapdeal.com"
+	"url": "https://www.snapdeal.com",
+	"Homepage_SignIn_Button": ".accountUserName",
+	"Product_Search_Button_TextField": "#inputValEnter",
+	"Product_Search_Button": ".searchTextSpan"
 }

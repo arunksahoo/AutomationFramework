@@ -1,54 +1,37 @@
 package com.framework.pages;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import com.framaework.commonutilites.BasePage;
-import com.framaework.commonutilites.GenericsMethods;
+import com.framaework.commonutilites.JSONReader;
 
 public class Homepage extends BasePage {
 	static WebElement element;
 	static WebDriver driver;
-	static GenericsMethods genericMethods;
+	static String jsonfile;
+	JSONReader getValue;
 
 	public Homepage(WebDriver driver) {
 		Homepage.driver = driver;
-		genericMethods = new GenericsMethods();
+		jsonfile = System.getProperty("user.dir") + "/data_source/HomePage.json";
+		getValue = new JSONReader();
 	}
 
-	// Reading elements for home page
-	public static String ReadingFilePagePath(String Value) {
-		File file = new File("src/main/java/com/framework/uipageselements/HomePageElements.properties");
-		FileInputStream fileInput = null;
-		try {
-			fileInput = new FileInputStream(file);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+	// Click On SignButton 
+		public WebElement SignInButton() throws IOException {
+			return getElementfluent(By.cssSelector(getValue.readFile(jsonfile,"Homepage_SignIn_Button")));
+
 		}
+	// Search for product.
+	public WebElement SearchProductTextField() throws IOException {
+		return getElementfluent(By.cssSelector(getValue.readFile(jsonfile,"Product_Search_Button_TextField")));
 
-		Properties prop = new Properties();
-		// load properties file
-		try {
-			prop.load(fileInput);
-		} catch (IOException e) {
-			e.printStackTrace();
+	}
+	// Search for product.
+		public WebElement SearchProductButton() throws IOException {
+			return getElementfluent(By.cssSelector(getValue.readFile(jsonfile,"Product_Search_Button")));
+
 		}
-
-		String Data = prop.getProperty(Value);
-
-		return Data;
-	}
-
-	// Patient discount percentage text in patients details page
-	public WebElement SignInButton() {
-		return getElementfluent(By.cssSelector(ReadingFilePagePath("Homepage_SignIn_Button")));
-
-	}
 }
